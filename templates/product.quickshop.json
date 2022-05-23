@@ -1,0 +1,47 @@
+{
+  "layout": "quickshop",
+  "sections": {
+    "main": {
+      "type": "quickshop",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "form": {
+          "type": "form",
+          "settings": {
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "form",
+        "description"
+      ],
+      "settings": {
+        "quickshop_gallery_aspect_ratio": "natural",
+        "quickshop_gallery_image_crop": true,
+        "quickshop_gallery_thumbnail_position": "below",
+        "quickshop_gallery_video_autoplay": true,
+        "quickshop_gallery_video_looping": true,
+        "quickshop_gallery_hover_zoom": "disabled"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

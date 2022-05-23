@@ -1,0 +1,96 @@
+<section class="original-section pc-display">
+     <div class="original-section-header">
+          <h2 class="home-section--title">{{ section.settings.title | escape }}</h2>
+     </div>
+          <div class="quick-guides-to-purchasing-body">
+               <ul class="quick-guides-to-purchasing-row">
+                    {% for block in section.blocks %}
+                         {% assign slide = block.settings %}
+                         
+                         {% if slide.image != blank %}
+                              <li class="quick-guides-to-purchasing-item">
+                                   <a href="{{ slide.link }}">
+                                        <img class="quick-guides-to-purchasing-img" src="{{ slide.image | img_url: 'master' }}" alt="{{ slide.image.alt | escape }}" width="{{ slide.image.width }}" height="{{ slide.image.width | divided_by: slide.image.aspect_ratio }}" loading="lazy">                                   
+                                   </a>
+                                   {% else %}
+                                   {% assign placeholder = 'image' %}
+                                   {{ placeholder | placeholder_svg_tag }}
+                                   {% endif %}            
+                         </li>
+                              {% endfor %}
+                    
+               </ul>
+          </div>
+</section>
+
+
+
+
+<!-- スライダーのメインコンテナの div 要素（必須） -->
+<section class="original-section mobile-display">
+     <div class="swiper">
+          <div class="original-section-header">
+               <h2 class="home-section--title">{{ section.settings.title | escape }}</h2>
+          </div>
+          <!-- スライドを囲む div 要素（必須） -->
+          <div class="swiper-wrapper">
+               <!-- それぞれのスライドの div 要素（必須） -->
+               {% for block in section.blocks %}
+                    {% assign slide = block.settings %}
+
+                    {% if slide.image != blank %}
+                         <div class="quick-guides-to-purchasing-swiper-slide swiper-slide">
+                              <a href="{{ slide.link }}">
+                                   <img class="quick-guides-to-purchasing-img" src="{{ slide.image | img_url: 'master' }}" alt="{{ slide.image.alt | escape }}" width="{{ slide.image.width }}" height="{{ slide.image.width | divided_by: slide.image.aspect_ratio }}" loading="lazy">                              
+                              </a>
+                              {% else %}
+                              {% assign placeholder = 'image' %}
+                              {{ placeholder | placeholder_svg_tag }}
+                         {% endif %}            
+                    </div>
+               {% endfor %}             
+          </div>          
+     </div>    
+</section>
+     
+     
+     
+
+   {% schema %}
+   {
+     "name": "QuickGuidestoPurchasing",
+     "max_blocks": 4,
+     "settings": [
+          {
+     "type": "text",
+     "id": "title",
+     "default": "Quick Guides To Purchasing",
+     "label": "Title"
+               }
+                    ],
+     "blocks": [
+        {
+          "name": "4 Slide Image",
+          "type": "slide",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Image"
+            },
+            {
+                 "type": "url",
+                 "id": "link",
+                 "label": "Image Link"
+            }
+          ]
+        }
+      ],
+      "presets": [
+          {
+          "name": "QuickGuidestoPurchasing"
+          }
+          ]
+   }
+   {% endschema %}
+   

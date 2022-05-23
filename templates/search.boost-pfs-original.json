@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "static-search-boost-pfs-original",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
